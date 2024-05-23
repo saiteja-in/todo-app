@@ -7,9 +7,12 @@ const App = () => {
   const inputTask = useRef(null);
 
   const addTask = () => {
-    setTodolist([...todolist, currentlist]);
-    inputTask.current.value="";
-  };
+    if(currentlist){
+      setTodolist([...todolist, currentlist]);
+      inputTask.current.value="";
+      setCurrentList("")
+    };
+  }
   return (
     <>
       <div className="App">
