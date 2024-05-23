@@ -1,42 +1,71 @@
-
+/* App.css */
 .App {
-  /* display: flex; */
-  justify-content: center;
-  /* align-items: center; */
-  /* height: 100vh; */
-  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input{
-  margin:10px;
-  width:300px;
-  height:40px;
-  font-size: 20px;
-  padding-left:15px
-}
-button{
-  height:39px;
-  font-size: 20px;
-}
-ul{
-  display:grid;
-  place-items:center
-}
-li{
-  list-style-type :none;
-  width:300px;
-  height:40px;
-  background-color:rgb(127, 255, 138);
-  margin:10px;
-  padding-top: 10px;
-  padding-left:20px;
-  color:rgb(68, 10, 148);
-  font-family:sans-serif;
-  font-size: 30px;
+.input-container {
+  margin-bottom: 20px;
 }
 
-#tasks{
-  display:flex;
-  flex-direction: row;
-  align-items:center
+input {
+  margin: 10px;
+  width: 300px;
+  height: 40px;
+  font-size: 18px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  margin: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button.completed {
+  background-color: #5cb85c;
+  color: white;
+}
+
+button.delete {
+  background-color: #d9534f;
+  color: white;
+}
+
+.task-list-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#tasks {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.completed-task {
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.not-completed-task {
+  color: #d9534f;
+  font-weight: bold;
 }
