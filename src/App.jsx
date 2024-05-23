@@ -7,11 +7,21 @@ const App = () => {
   const inputTask = useRef(null);
 
   const addTask = () => {
-    if(currentlist){
-      setTodolist([...todolist, currentlist]);
-      inputTask.current.value="";
-      setCurrentList("")
-    };
+    if (currentlist) {
+      setTodolist([...todolist, {task:currentlist,completed:false}]);
+      inputTask.current.value = "";
+      setCurrentList("");
+    }
+  };
+  const deleteTask=(val)=>{
+    setTodolist(todolist.filter((task)=>{
+      return task.task!==val;
+    }))
+  }
+  const completeTask=(val)=>{
+    setTodolist(todolist.map((task)=>{
+      return task.task==val ?{task:val,completed:true}:{task:task.task,completed: task.completed? true:false}
+    }))
   }
   return (
     <>
@@ -21,7 +31,10 @@ const App = () => {
           ref={inputTask}
           type="text"
           placeholder="Task.."
-          // value={currentlist}
+          onKeyDown={(e)=>{if (e.keyCode==13) addTask()}}
+          // ^ this function interacts with the keyboard keys
+          // enter key code is 13, if we press enter addTask function runs
+          value={currentlist.task}
           onChange={(e) => setCurrentList(e.target.value)}
         ></input>
         <button onClick={addTask}>Add Task</button>
@@ -29,9 +42,16 @@ const App = () => {
       </div>
       <div>
         <ul>
-          {todolist.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          {todolist.map((item, index) => {
+            return(
+              <div id="tasks">
+               <li key={index}>{item.task}</li>
+               <button onClick={()=>completeTask(item.task)}>completed</button>
+               <button onClick={()=>deleteTask(item.task)}>X</button>
+               {item.completed ?(<h2>task completed</h2>):(<h2>task not completed</h2>)}
+              </div>
+              );
+          })}
         </ul>
       </div>
     </>
