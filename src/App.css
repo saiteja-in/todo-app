@@ -18,3 +18,19 @@ button{
   height:39px;
   font-size: 20px;
 }
+ul{
+  display:grid;
+  place-items:center
+}
+li{
+  list-style-type :none;
+  width:300px;
+  height:40px;
+  background-color:rgb(127, 255, 138);
+  margin:10px;
+  padding-top: 10px;
+  padding-left:20px;
+  color:rgb(68, 10, 148);
+  font-family:sans-serif;
+  font-size: 30px;
+}
